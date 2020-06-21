@@ -9,16 +9,14 @@ export const Transaction = ({ transaction }) => {
 
     return (
         <div>
-            <li className={transaction.amount > 0? "item-plus": "item-minus"}>
-            {transaction.text}<small>{transaction.amount>0? "Income added on ": "Expense added on "}{currentDate.toLocaleString()}</small>
-                <span>SAR {transaction.amount}</span>
-                <button onClick={() => deleteTransaction(transaction.id)}>X</button>
+            <li className={transaction.amount > 0? "plus": "minus"}>
+            {transaction.text}<small>{transaction.amount>0? " Income added": " Expense added"}</small>
+                <span>SAR {Math.abs(transaction.amount)}</span>
+                <button className="delete-btn" onClick={() => deleteTransaction(transaction.id)}>X</button>
             </li>
         </div>
     )
 }
-
-
 
 
 

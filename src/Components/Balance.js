@@ -1,5 +1,7 @@
 import React, { useContext } from 'react'
 import {GlobalContext} from '../contex/GlobalState'
+import CountUp from 'react-countup'
+
 
 function Balance() {
     const { transactions } = useContext(GlobalContext)
@@ -8,7 +10,9 @@ function Balance() {
 
     return <div className="balance">
             <h3>Your Balance</h3>
-            <h1>SAR {total}</h1>
+            <h1><CountUp delay={2} start={0} end={total}/></h1>
+            {/* <CountUp delay={2} start={0} end={100} /> */}
+            {/* <h1>SAR  {total} </h1> */}
         </div>
 }
 
